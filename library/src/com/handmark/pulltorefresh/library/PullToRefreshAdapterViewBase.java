@@ -28,6 +28,7 @@ import android.widget.AbsListView.OnScrollListener;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -206,6 +207,19 @@ public abstract class PullToRefreshAdapterViewBase<T extends AbsListView> extend
 	 */
 	public void setOnItemClickListener(OnItemClickListener listener) {
 		mRefreshableView.setOnItemClickListener(listener);
+	}
+	
+	public void setOnItemLongClickListener(OnItemLongClickListener listener) {
+		mRefreshableView.setOnItemLongClickListener(listener);
+	}
+
+	@Override
+	public void setOnTouchListener(OnTouchListener listener) {
+		mRefreshableView.setOnTouchListener(listener);
+	}
+	
+	public int pointToPosition(int x, int y) {
+		return mRefreshableView.pointToPosition(x, y);
 	}
 
 	public final void setOnLastItemVisibleListener(OnLastItemVisibleListener listener) {
